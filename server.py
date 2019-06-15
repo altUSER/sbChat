@@ -51,6 +51,7 @@ class Client(Protocol):
 
 		else:
 			print('[SERVER] Error: Invalid client login')
+			self.transport.write('exit\n'.encode()) #костыль на отключение клиента
 
 	def connectionLost(self, reason=None): #обработка подключений
 
